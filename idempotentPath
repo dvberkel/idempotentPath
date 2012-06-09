@@ -1,3 +1,8 @@
+#! /usr/env bash
+
+# This function performs the following action.
+# Add the first argument to the PATH variable
+# only if it is not already present.
 function idempotentAddToPath() {
   if ! grep -q $1 <<<$PATH
   then
@@ -5,6 +10,8 @@ function idempotentAddToPath() {
   fi
 }
 
-idempotentAddToPath ~/bin
-
-echo $PATH
+# Example usage:
+# After executing the following line the bin
+# directory in your home directory is added
+# to you path.
+#   idempotentAddToPath ~/bin/
