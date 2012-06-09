@@ -1,14 +1,10 @@
-echo "Hello World"
-
-entry=~/bin/processing-1.5.1
-
 function idempotentAddToPath() {
-    if ! grep -q $entry <<<$PATH
+  if ! grep -q $1 <<<$PATH
   then
-    echo "not present"
-  else
-    echo "already present"
+    PATH=$1:$PATH
   fi
 }
 
-idempotentAddToPath $entry
+idempotentAddToPath ~/bin
+
+echo $PATH
